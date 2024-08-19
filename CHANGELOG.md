@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/GersonRS/modern-gitops-stack-module-kafka-ui/compare/v1.1.0...v1.2.0) (2024-08-19)
+
+
+### 🚀 New Features
+
+* add kubernetes_service ([cc8508f](https://github.com/GersonRS/modern-gitops-stack-module-kafka-ui/commit/cc8508f90b20e2e0719d001cebd219234f2681d1))
+
+
+### 📚 Documentation
+
+* **terraform-docs:** generate docs and write to README.adoc ([da2cfb3](https://github.com/GersonRS/modern-gitops-stack-module-kafka-ui/commit/da2cfb311cbad67e85fca2199f06fdcf6c0f7e03))
+
 ## [1.1.0](https://github.com/GersonRS/modern-gitops-stack-module-kafka-ui/compare/v1.0.0...v1.1.0) (2024-08-19)
 
 
