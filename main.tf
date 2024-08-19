@@ -104,3 +104,14 @@ resource "null_resource" "this" {
     resource.argocd_application.this,
   ]
 }
+
+data "kubernetes_service" "kafka-ui" {
+  metadata {
+    name      = "kafka-ui"
+    namespace = "observability"
+  }
+
+  depends_on = [
+    null_resource.this
+  ]
+}
