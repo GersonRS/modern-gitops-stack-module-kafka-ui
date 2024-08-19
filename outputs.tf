@@ -5,7 +5,7 @@ output "id" {
 
 output "cluster_dns" {
   description = "Kafka-ui cluster dns"
-  value       = "kafka-ui.${var.namespace}.svc.cluster.local"
+  value       = "kafka-ui.observability.svc.cluster.local"
 }
 output "cluster_ip" {
   description = "Kafka-ui cluster ip internal"
