@@ -1,6 +1,7 @@
 locals {
-  domain      = format("kafka-ui.%s", trimprefix("${var.subdomain}.${var.base_domain}", "."))
-  domain_full = format("kafka-ui.%s.%s", trimprefix("${var.subdomain}.${var.cluster_name}", "."), var.base_domain)
+  domain         = format("kafka-ui.%s", trimprefix("${var.subdomain}.${var.base_domain}", "."))
+  domain_full    = format("kafka-ui.%s.%s", trimprefix("${var.subdomain}.${var.cluster_name}", "."), var.base_domain)
+  kafka_password = lookup(data.kubernetes_secret.kafka_user.data, var.kafka_password_secret_key, "")
 
   helm_values = [{
     kafka-ui = {
@@ -10,6 +11,11 @@ locals {
             name             = "local"
             bootstrapServers = "${var.kafka_broker_name}-kafka-bootstrap.ingestion.svc.cluster.local:9092"
             schemaRegistry   = "http://schema-registry-cp-schema-registry.ingestion.svc.cluster.local:8081"
+            properties = {
+              "security.protocol" = "SASL_PLAINTEXT"
+              "sasl.mechanism"    = "SCRAM-SHA-512"
+              "sasl.jaas.config"  = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"$${KAFKA_UI_KAFKA_USERNAME}\" password=\"$${KAFKA_UI_KAFKA_PASSWORD}\";"
+            }
             # schemaRegistryAuth = {
             #   username = "username"
             #   password = "password"
@@ -40,6 +46,13 @@ locals {
 
       ingress = {
         enabled = false
+      }
+
+      envs = {
+        secret = {
+          KAFKA_UI_KAFKA_USERNAME = var.kafka_username
+          KAFKA_UI_KAFKA_PASSWORD = local.kafka_password
+        }
       }
     }
   }]
