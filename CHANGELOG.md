@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.6.0](https://github.com/gersonrs/modern-gitops-stack-module-kafka-ui/compare/v1.5.1...v1.6.0) (2026-07-11)
+
+
+### 🚀 New Features
+
+* add namespace_labels variable to all modules ([a8a0bc0](https://github.com/gersonrs/modern-gitops-stack-module-kafka-ui/commit/a8a0bc07a81b191a70759f0a18977efc3fafac8c))
+* harden kafka ui broker authentication ([48e2f31](https://github.com/gersonrs/modern-gitops-stack-module-kafka-ui/commit/48e2f3193f4bd4f66316d083f2ab5018ec14f03d))
+* harden kafka ui broker authentication ([da85a7b](https://github.com/gersonrs/modern-gitops-stack-module-kafka-ui/commit/da85a7b92f062890604e9b454e98162622246f15))
+
+
+### 🔥 Bug Fixes
+
+* tolerate missing kafka user secret during bootstrap ([2434dc3](https://github.com/gersonrs/modern-gitops-stack-module-kafka-ui/commit/2434dc3dec07d74b349e20c17fa583cbfbb9d0a9))
+
 ## [1.5.1](https://github.com/gersonrs/modern-gitops-stack-module-kafka-ui/compare/v1.5.0...v1.5.1) (2026-05-20)
 
 
